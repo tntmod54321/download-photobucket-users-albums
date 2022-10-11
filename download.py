@@ -129,7 +129,9 @@ def main():
 			print(f"downloading image {image['originalFilename']}")
 			imageURL = image['originalImage']['url']
 			imageBin = session.get(imageURL, headers=headers)
-			if imageBin.status_code!=200: raise Exception
+			if imageBin.status_code==200: pass
+			elif imageBin.status_code==422: pass # if video thumbnail doesn't have a preview
+			else: raise Exception
 			
 			if imageBin.headers['Content-Type']=='image/jpeg': imageExt='.jpg'
 			elif imageBin.headers['Content-Type']=='image/png': imageExt='.png'
