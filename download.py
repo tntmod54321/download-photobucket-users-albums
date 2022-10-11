@@ -11,13 +11,11 @@ import re
 
 # update printhelp
 def printHelp():
-	print("Usage:", "py wpd_save_post.py -u [POST URL] -o [OUTPUT DIR] -c cookies.txt\n\n"+
+	print("Usage:", "py download.py -u [USERNAME] -o [OUTPUT DIR]\n\n"+
 	"Arguments:\n", "  -h, --help\t\tdisplay this usage info\n",
-	"  -u, --url\t\tpost url\n",
-	"  -id, --id\t\tpost id\n",
+	"  -u, --username\tuser to download albums from\n",
 	"  -o, --output-dir\toutput directory\n",
-	"  -s, --session\tsession cookie\n",
-	"  -c, --cookies\tcookies file")
+	"  -ua, --user-agent\toverride default useragent")
 	exit()
 
 def queryPB(apiURL, operation, query, variables, headers, session = requests.Session()):
